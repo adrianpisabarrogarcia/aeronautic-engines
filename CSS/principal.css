@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+/*Header: contiene el logo y una lista desplegable para cerrar la sesión del  trabajador*/
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: grey;
+}
+ul#usuario{
+    list-style: none;
+    padding-right: 1%;
+}
+ul#usuario li{
+    text-align: center;
+}
+
+/*Main: contiene todos los divs para para crear eliminar usuarios y avisos*/
+main{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+}
+/*Aside: contiene el menu desplegable con el que se "manejarán" los divs del main*/
+aside{
+    width: 25%;
+    float: left;
+    background-color: red;
+    justify-content: center;
+}
+#menu_usuario{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: black;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    cursor: pointer;
+}
+.desplegar{
+    height: 100%;
+}
+
+
+
+
+
+
