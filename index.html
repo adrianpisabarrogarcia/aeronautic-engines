@@ -8,7 +8,8 @@
     <meta author="Mario,Adrian,Tania" description="Página de login para acceder al apartado del trabajador.">
 
 </head>
-<body>
+<body onload="usuadmin()">
+
 
 <main>
     <img src="imagenes/logo_horizontal.png">
@@ -23,10 +24,12 @@
             <input type="password" name="Password" id="contra" required="" placeholder="Escribe aquí tu contraseña">
             <br>
         </form>
-        <button>Iniciar</button>
+        <button onclick="acceder()">Iniciar</button>
     </div>
 </main>
 
+<script src="JS/portalUsuario.js"></script>
+<script src="JS/objetousuario.js"></script>
 
 
 </body>
