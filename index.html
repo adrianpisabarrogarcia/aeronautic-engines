@@ -6,6 +6,7 @@
     <link href="CSS/index.css" rel="stylesheet" type="text/css">
     <link href="imagenes/logo_vertical.png" rel="icon" type="image/x-icon">
     <meta author="Mario,Adrian,Tania" description="Página de login para acceder al apartado del trabajador.">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
 
 </head>
 <body onload="usuadmin()">
@@ -18,11 +19,9 @@
 
         <form action="" method="post">
             <label for="usu">Usuario: </label>
-            <input type="text" name="Usuario" id="usu" placeholder="Escribe aquí tu usuario." required="">
-            <br>
+            <input type="text" name="Usuario" id="usu" placeholder="Escribe aquí tu usuario.">
             <label for="contra" >Contraseña: </label>
-            <input type="password" name="Password" id="contra" required="" placeholder="Escribe aquí tu contraseña">
-            <br>
+            <input type="password" name="Password" id="contra" placeholder="Escribe aquí tu contraseña">
         </form>
         <button onclick="acceder()">Iniciar</button>
     </div>
