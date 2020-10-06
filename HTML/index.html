@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AeroNautics SA</title>
+    <link rel="icon" type="image/x-icon" href="logo_vertical.png">
+</head>
+<body>
+<header>
+    <img src="logo_horizontal.png">
+    <ul id="usuario">
+        <li id="trabajador"><img src="../imagenes/persona.png"> Nombre de usuario</li>
+        <li><a>Ajustes</a></li>
+        <li><a>Cerrar sesión</a></li>
+    </ul>
+
+</header>
+<main>
+    <div id="tablon de anuncios">
+        <h1>Tablón de anuncios</h1>
+        <div id="anuncio">
+            <form action="" method="post">
+                <input type="date" name="Fecha" class="refresh">
+                <br>
+                <input type="text" name="Titulo" class="refresh">
+                <br>
+                <textarea name="Descripcion" placeholder="Aqui va la informacion del aviso" class="refresh"></textarea>
+            </form>
+        </div>
+        <button type="button" name="Actualizar" onclick="actualizar()"><img src="../imagenes/refrescante.ico"></button>
+
+    </div>
+
+    <div id="crear_usuario">
+        <h1>Crear usuario</h1>
+        <div id="nuevo_usu">
+            <form action="" method="post">
+                <label for="Nombre">Nombre: </label>
+                <input type="text" id="Nombre" name="nombre">
+                <br>
+                <label for="apellido">Apellido: </label>
+                <input type="text" id="apellido" name="Apellido">
+                <br>
+                <label for="dni">DNI: </label>
+                <input type="text" id="dni" name="DNI">
+                <br>
+                <label for="user">Usuario: </label>
+                <input type="text" id="user" name="User">
+                <br>
+                <label for="contraseña">Contraseña: </label>
+                <input type="password" id="contraseña" name="Contraseña">
+            </form>
+        </div>
+        <button type="button" name="Crear_usuario" onclick="">Crear usuario</button>
+    </div>
+
+    <div id="borrar_usuario">
+        <h1>Borrar usuario</h1>
+        <div>
+
+        </div>
+
+    </div>
+
+    <div id="modificar_usuario">
+        <h1>Modificar usuario</h1>
+        <div>
+
+        </div>
+    </div>
+
+    <div id="crear_aviso">
+        <h1>Crear aviso</h1>
+        <div>
+            <form method="post" action="">
+                <label for="title">Título: </label>
+                <input type="text" id="title" name="Title">
+                <br>
+                <label for="desc">Descripción:</label>
+                <textarea id="desc" name="Description" placeholder="Escribe aquí la descripción del aviso."></textarea>
+                <label for="fecha">Fecha: </label>
+                <input type="date" id="fecha" name="Date">
+            </form>
+        </div>
+        <button type="button" name="crear_aviso" onclick="">Crear aviso</button>
+    </div>
+
+    <div id="borrar_Aviso">
+        <h1>Borrar aviso</h1>
+        <div>
+            
+        </div>
+    </div>
+
+
+</main>
+<aside>
+    <ul>
+        <li><a>Usuario ><span class="deplegado"></span></a></li>
+        <li class="usu_desplegable"><a>Añadir usuario</a></li>
+        <li class="usu_desplegable"><a>Borrar usuario</a></li>
+        <li class="usu_desplegable"><a>Modificar usuario</a></li>
+        <li><a>Avisos ><span class="desplagado"></span></a></li>
+        <li class="avi_desplegable"><a>Crear aviso</a></li>
+        <li class="avi_desplegable"><a>Borrar aviso</a></li>
+        <li class="avi_desplegable"><a>Tablón de anuncios</a></li>
+    </ul>
+</aside>
+
+<footer>
+
+</footer>
+</body>
+</html>
