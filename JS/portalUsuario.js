@@ -1,9 +1,8 @@
 var usuarios = [];
-var datosusu = JSON.parse(localStorage.getItem("datos"));
 
 function usuadmin()
 {
-    if (datosusu == null)
+    if (usuarios.length == 0)
     {
         let u = new Usuario("equipo3","12345Abcde","Equipo3","Reto1","00000000A");
         usuarios.push(u);
@@ -12,6 +11,8 @@ function usuadmin()
 }
 
 function acceder(){
+    var datosusu = JSON.parse(localStorage.getItem("datos"));
+
     let usu = document.getElementById("usu").value;
     let expusu = new RegExp("^[A-Za-z0-9]*$");
     let cont = document.getElementById("contra").value;
