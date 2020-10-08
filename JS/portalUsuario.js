@@ -4,8 +4,8 @@ function usuadmin(){
     if (datosusu == null){
         var usuarios = []
         let u = new Usuario("equipo3","12345Abcde","Equipo3","Reto1","00000000A");
-        datosusu.push(u);
-        localStorage.setItem('datos',JSON.stringify(datosusu));
+        usuarios.push(u);
+        localStorage.setItem('datos',JSON.stringify(usuarios));
     }
 }
 
