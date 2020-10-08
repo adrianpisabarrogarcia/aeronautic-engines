@@ -1,15 +1,17 @@
 
 function usuadmin(){
-    var datosusu = JSON.parse(localStorage.getItem("datos"));
+    let datosusu = JSON.parse(localStorage.getItem("datos"));
     if (datosusu == null){
         var usuarios = []
         let u = new Usuario("equipo3","12345Abcde","Equipo3","Reto1","00000000A");
-        usuarios.push(u);
-        localStorage.setItem('datos',JSON.stringify(usuarios));
+        datosusu.push(u);
+        localStorage.setItem('datos',JSON.stringify(datosusu));
     }
 }
 
 function acceder(){
+    let datosusu = JSON.parse(localStorage.getItem("datos"));
+
     let usu = document.getElementById("usu").value;
     let expusu = new RegExp("^[A-Za-z0-9]*$");
     let cont = document.getElementById("contra").value;
