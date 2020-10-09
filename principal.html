@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AeroNautics SA</title>
+    <link rel="icon" type="image/x-icon" href="imagenes/logo_vertical.png">
+    <link href="CSS/principal.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body  onload="contadores()">
+<header >
+    <img id="logo" src="imagenes/logo_horizontal_negativo.png">
+    <div id="ajustes_usuario">
+        <button onclick="desplegarAjustesUsuario()" id="username" class="desplegar3"><img src="imagenes/persona.png"><span id="nombre_usuario_conectado"></span></button>
+        <div id="configuracion" class="opciones">
+            <div id="ajustes">
+                <button onclick="modificarusu()"><img src="imagenes/ajustes.png"></img>Ajustes</button>
+            </div>
+            <div onclick="cerrarSesion()" id="cerrar_sesion">
+                <button><img src="imagenes/cerrar-sesion.png">Cerrar sesión</button>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <button onclick="abrirmenu()">EJEMPLO</button>
+    </div>
+
+</header>
+
+<aside>
+    <div id="sticky">
+        <div id="menu_usuario">
+            <button onclick="desplegarMenuUsuario()" id="fondo_flecha1" class="desplegar"><a>Usuarios</a></button>
+            <div id="despliegue" class="contenido">
+                <div id="añadir_usu">
+                    <button onclick="anadirusu()">Añadir usuario</button>
+                </div>
+                <div id="borrar_usu">
+                    <button onclick="borrarusu()">Borrar usuario</button>
+                </div>
+                <div id="modificar _usu">
+                    <button onclick="modificarusu()">Modificar usuario</button>
+                </div>
+                <div id="lista _usu">
+                    <button onclick="listausu()">Lista de usuarios</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="menu_aviso">
+            <button onclick="desplegarMenuAviso()" id="fondo_flecha2" class="desplegar2"><a>Anuncios</a></button>
+            <div id="despliegue2" class="contenido2">
+                <div id="añadir_aviso">
+                    <button onclick="anadiraviso()">Añadir anuncio</button>
+                </div>
+                <div id="borrar_aviso">
+                    <button onclick="borraraviso()">Borrar anuncio</button>
+                </div>
+                <div id="modificar _aviso">
+                    <button onclick="modaviso()">Modificar anuncio</button>
+                </div>
+                <div id="tablon">
+                    <button onclick="tablon()">Tablón de anuncios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<main>
+    <div id="tablonAnuncios">
+        <h1>Tablón de anuncios</h1>
+            <form action="" method="post">
+                <input type="text" name="Fecha" id="fecha" class="refresh" placeholder="fecha">
+
+                <input type="text" name="Titulo" id="titulo" class="refresh" placeholder="titulo">
+                <br>
+
+                <textarea id="descri" placeholder="Aqui va el texto"></textarea>
+
+            </form>
+        <button type="button" name="Actualizar" onclick="anterior()"><img src="imagenes/anterior.png"></button>
+        <button type="button" name="Actualizar" onclick="siguiente()"><img src="imagenes/siguiente.png"></button>
+
+    </div>
+
+    <div id="crear_usuario">
+        <h1>Crear usuario</h1>
+        <div id="nuevo_usu">
+            <form action="" method="post">
+                <label for="Nombre">Nombre: </label>
+                <input type="text" id="Nombre" name="nombre">
+                <br>
+                <label for="apellido">Apellido: </label>
+                <input type="text" id="apellido" name="Apellido">
+                <br>
+                <label for="dni">DNI: </label>
+                <input type="text" id="dni" name="DNI">
+                <br>
+                <label for="user">Usuario: </label>
+                <input type="text" id="user" name="User">
+                <br>
+                <label for="contraseña">Contraseña: </label>
+                <input type="password" id="contraseña" name="Contraseña">
+                <br>
+            </form>
+        </div>
+        <button type="button" name="" onclick="annadirUsuario()">Crear usuario</button>
+    </div>
+
+    <div id="borrar_usuario">
+        <h1>Borrar usuario</h1>
+        <div id="borrar_user">
+            <label for="borrar">Buscar usuario: </label>
+            <input type="text" id="borrar" name="Borrar">
+        </div>
+        <button type="button" onclick="borrarUsuario()" name="Borrar_usuario">Borrar usuario</button>
+
+    </div>
+
+    <div id="modificar_usuario">
+        <h1>Modificar usuario</h1>
+        <div id="buscar_usu">
+            <label for="buscar_usuario">Buscar usuario: </label>
+            <input type="text" id="buscar_usuario" name="buscar">
+            <button type="button" onclick="buscarUsuario()">Buscar usuario</button>
+        </div>
+        <div id="mod_usu">
+            <label for="name">Nombre: </label>
+            <input type="text" id="name" name="nombre">
+            <br>
+            <label for="surname">Apellido: </label>
+            <input type="text" id="surname" name="Apellido">
+            <br>
+            <label for="credencial">DNI: </label>
+            <input type="text" id="credencial" name="DNI">
+            <br>
+            <label for="usertag">Usuario: </label>
+            <input type="text" id="usertag" name="User">
+            <br>
+            <label for="pass">Contraseña: </label>
+            <input type="password" id="pass" name="Contraseña">
+
+            <button type="button" onclick="modificarUsuario()">Modificar usuario</button>
+        </div>
+    </div>
+    <div id="lista_usuarios">
+        <h1>Lista de usuarios</h1>
+        <textarea id="descripcion" placeholder="Aqui va el texto"></textarea>
+
+    </div>
+
+    <div id="crear_aviso">
+        <h1>Crear anuncio</h1>
+        <div>
+            <form method="post" action="">
+                <label for="title">Título: </label>
+                <input type="text" id="tit" name="Title">
+                <br>
+                <label for="fecha">Fecha: </label>
+                <input type="text" id="fech" name="Date">
+                <label for="desc">Descripción:</label>
+                <textarea id="descrip" name="Description"
+                          placeholder="Escribe aquí la descripción del aviso."></textarea>
+
+            </form>
+        </div>
+        <button type="button" name="crear_aviso" onclick="">Crear anuncio</button>
+    </div>
+
+    <div id="borrar_anuncio">
+        <h1>Borrar anuncio</h1>
+        <div id="borrar_avi">
+            <label for="borrar_anun">Buscar anuncio: </label>
+            <input type="text" id="borrar_anun" name="Borrar" placeholder="Busqueda por Titulo">
+        </div>
+        <button type="button" onclick="" name="Borrar_usuario">Borrar anuncio</button>
+
+    </div>
+    <div id="modificar_aviso">
+        <h1>Modificar anuncio</h1>
+        <div id="buscar_anuncio">
+            <label for="buscar_aviso">Buscar anuncio: </label>
+            <input type="text" id="buscar_aviso" name="buscar" placeholder="Busqueda por Titulo">
+            <button type="button" onclick="">Buscar anuncio</button>
+        </div>
+        <div id="modify_aviso">
+            <label for="title">Título: </label>
+            <input type="text" id="title" name="Title">
+            <br>
+            <label for="fecha">Fecha: </label>
+            <input type="text" id="date" name="Date">
+            <label id="label_descripcion" for="desc">Descripción:</label>
+            <textarea id="desc" name="Description" placeholder="Escribe aquí la descripción del aviso."></textarea>
+            <button type="button" onclick="">Actualizar anuncio</button>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+
+</footer>
+</body>
+<script>
+    var usuarioConectado;
+    document.getElementById("nombre_usuario_conectado").innerHTML = "Prueba de pagina";
+</script>
+<script src="js/menuDesplegable.js"></script>
+<script src="js/portalUsuario.js"></script>
+<script src="JS/textareaAutomatico.js"></script>
+</html>
