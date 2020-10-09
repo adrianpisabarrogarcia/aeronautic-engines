@@ -1,11 +1,35 @@
+window.onload= contadores();
+
+var contadorUsuario=0;
+var contadorAviso=0;
+
+function  contadores(){
+     contadorUsuario = 0;
+     contadorAviso = 0;
+}
+
 function desplegarMenuUsuario(){
     mostrarmenu("despliegue","mostrar");
-    cambiarImagen("fondo_flecha1");
+    contadorUsuario++;
+    if(contadorUsuario%2==0){
+        cambiarFlechaDerecha("fondo_flecha1");
+    }
+    else{
+        cambiarFlechaAbajo("fondo_flecha1");
+    }
+
 }
 
 function desplegarMenuAviso(){
     mostrarmenu("despliegue2","mostrar2");
-    cambiarImagen("fondo_flecha2");
+    contadorAviso++;
+    if(contadorAviso%2==0){
+        cambiarFlechaDerecha("fondo_flecha2");
+    }
+    else{
+        cambiarFlechaAbajo("fondo_flecha2");
+    }
+
 }
 
 function desplegarAjustesUsuario(){
@@ -26,10 +50,15 @@ function desplegarAjustesUsuario(){
 
 function mostrarmenu(a1,a2){
     document.getElementById(a1).classList.toggle(a2);
-}
-function cambiarImagen(b){
-    var imagen= document.getElementById(b);
-    imagen.style.backgroundImage = "url('./imagenes/flecha-abajo.png')";
 
 }
+function cambiarFlechaDerecha(a1){
+   let imagen = document.getElementById(a1)
+    imagen.style.backgroundImage = "url('./imagenes/flecha-derecha.png')";
+}
+function cambiarFlechaAbajo(a1){
+    let imagen = document.getElementById(a1)
+    imagen.style.backgroundImage = "url('./imagenes/flecha-abajo.png')";
+}
+
 

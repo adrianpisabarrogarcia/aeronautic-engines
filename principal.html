@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>AeroNautics SA</title>
-    <link rel="icon" type="image/x-icon" href="logo_vertical.png">
+    <link rel="icon" type="image/x-icon" href="imagenes/logo_vertical.png">
     <link href="CSS/principal.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-<header>
+<body  onload="contadores()">
+<header >
     <img id="logo" src="imagenes/logo_horizontal_negativo.png">
     <div id="ajustes_usuario">
-        <button onclick="desplegarAjustesUsuario()" id="username" class="desplegar3"><img src="imagenes/persona.png">Maria teresa de calcuta</button>
+        <button onclick="desplegarAjustesUsuario()" id="username" class="desplegar3"><img src="imagenes/persona.png"><span id="nombre_usuario_conectado"></span></button>
         <div id="configuracion" class="opciones">
             <div id="ajustes">
                 <button onclick="modificarusu()"><img src="imagenes/ajustes.png"></img>Ajustes</button>
             </div>
-            <div id="cerrar_sesion">
-                <button>Cerrar sesión</button>
+            <div onclick="cerrarSesion()" id="cerrar_sesion">
+                <button><img src="imagenes/cerrar-sesion.png">Cerrar sesión</button>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
                     <button onclick="modificarusu()">Modificar usuario</button>
                 </div>
                 <div id="lista _usu">
-                    <button onclick="listausu()">Lista de usuarios </button>
+                    <button onclick="listausu()">Lista de usuarios</button>
                 </div>
             </div>
         </div>
@@ -59,14 +59,13 @@
                     <button onclick="tablon()">Tablón de anuncios</button>
                 </div>
             </div>
+        </div>
     </div>
-
 </aside>
 
 <main>
     <div id="tablonAnuncios">
         <h1>Tablón de anuncios</h1>
-        <div id="anuncio">
             <form action="" method="post">
                 <input type="text" name="Fecha" id="fecha" class="refresh" placeholder="fecha">
 
@@ -76,7 +75,6 @@
                 <textarea id="descri" placeholder="Aqui va el texto"></textarea>
 
             </form>
-        </div>
         <button type="button" name="Actualizar" onclick="anterior()"><img src="imagenes/anterior.png"></button>
         <button type="button" name="Actualizar" onclick="siguiente()"><img src="imagenes/siguiente.png"></button>
 
@@ -125,19 +123,19 @@
         </div>
         <div id="mod_usu">
             <label for="name">Nombre: </label>
-            <input type="text" id="name"  name="nombre">
+            <input type="text" id="name" name="nombre">
             <br>
             <label for="surname">Apellido: </label>
-            <input type="text" id="surname"  name="Apellido">
+            <input type="text" id="surname" name="Apellido">
             <br>
             <label for="credencial">DNI: </label>
-            <input type="text" id="credencial"  name="DNI">
+            <input type="text" id="credencial" name="DNI">
             <br>
             <label for="usertag">Usuario: </label>
-            <input type="text" id="usertag"  name="User">
+            <input type="text" id="usertag" name="User">
             <br>
             <label for="pass">Contraseña: </label>
-            <input type="password" id="pass"  name="Contraseña">
+            <input type="password" id="pass" name="Contraseña">
 
             <button type="button" onclick="modificarUsuario()">Modificar</button>
         </div>
@@ -158,7 +156,8 @@
                 <label for="fecha">Fecha: </label>
                 <input type="text" id="fech" name="Date">
                 <label for="desc">Descripción:</label>
-                <textarea id="descrip" name="Description" placeholder="Escribe aquí la descripción del aviso."></textarea>
+                <textarea id="descrip" name="Description"
+                          placeholder="Escribe aquí la descripción del aviso."></textarea>
 
             </form>
         </div>
@@ -189,7 +188,7 @@
             <input type="text" id="date" name="Date">
             <label id="label_descripcion" for="desc">Descripción:</label>
             <textarea id="desc" name="Description" placeholder="Escribe aquí la descripción del aviso."></textarea>
-            <button  type="button" onclick="">Actualizar aviso</button>
+            <button type="button" onclick="">Actualizar aviso</button>
         </div>
 
     </div>
@@ -199,6 +198,10 @@
 
 </footer>
 </body>
+<script>
+    var usuarioConectado;
+    document.getElementById("nombre_usuario_conectado").innerHTML = usuarioConectado;
+</script>
 <script src="js/menuDesplegable.js"></script>
 <script src="js/portalUsuario.js"></script>
 <script src="JS/textareaAutomatico.js"></script>

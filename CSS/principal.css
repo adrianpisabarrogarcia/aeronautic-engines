@@ -46,10 +46,13 @@ img#logo{
 /*Menu de la configuración del usuario que ha iniciado sesion.*/
 
 #ajustes_usuario{
-    width: auto;
+    width: 15%;
     position: absolute;
     height: 100%;
     right: 0;
+}
+#username img{
+
 }
 #ajustes_usuario > button{
     width: 100%;
@@ -78,14 +81,19 @@ img#logo{
     width: 100%;
     background-color: #1f1f1e;
     color: white;
-    font-size: 1.2em;
     outline: none;
     display: flex;
     justify-content: center ;
     align-items: center;
+    cursor: pointer;
 }
 #ajustes img{
-    padding-right: 20%;
+    position: relative;
+    left: -15%;
+}
+#cerrar_sesion button img{
+    position: relative;
+    left: -6%;
 }
 
 
@@ -126,7 +134,7 @@ aside{
 .desplegar, .desplegar2{
     background-image: url("../imagenes/flecha-derecha.png");
     background-position: 80%;
-    background-size: 30px;
+    background-size: 10%;
     background-repeat:no-repeat ;
     background-color: #1f1f1e;
 
@@ -223,11 +231,7 @@ main > div > div{
     height: auto;
 }
 
-div#anuncio{
-    width: 100%;
-    height: auto;
 
-}
 main div form{
     display: flex;
     flex-direction: row;
@@ -246,10 +250,13 @@ main div form{
     outline: none;
     border: none;
     background-color: ghostwhite;
+    margin: 0;
+    margin-bottom: 5%;
 }
 #fecha{
     text-align: right;
     padding-right: 10%;
+    margin-bottom: 0;
 
 }
 #descripcion{

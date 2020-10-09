@@ -97,6 +97,7 @@ button:hover{
     background-color: #E294A2;
     color: white;
     cursor: pointer;
+    outline: none;
 }
 @media only screen and (max-width: 920px){
     div#cuadro{
@@ -114,6 +115,9 @@ button:hover{
 }
 
 @media only screen and (max-width:500px){
+    main{
+        position: absolute;
+    }
     div#cuadro{
         width: 80%;
     }

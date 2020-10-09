@@ -31,10 +31,14 @@ function acceder(){
                     throw "ERROR: Usuario o contraseña incorrectas";
                 else
                 {
-                    if (datosusu[x].contra === cont)
+                    if (datosusu[x].contra === cont){
+                        usuarioConectado = datosusu[x].nombre;
                         location.href = "./principal.html";
-                    else
+                    }
+                    else{
                         throw "ERROR: Usuario o contraseña incorrectas";
+                    }
+
                 }
             }
             else
@@ -45,6 +49,10 @@ function acceder(){
     {
         alert(err);
     }
+}
+
+function cerrarSesion(){
+    location.href="./index.html";
 }
 
 function anadirusu(){
