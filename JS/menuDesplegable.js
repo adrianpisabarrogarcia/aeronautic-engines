@@ -4,8 +4,14 @@ var contadorUsuario=0;
 var contadorAviso=0;
 
 function  contadores(){
-     contadorUsuario = 0;
-     contadorAviso = 0;
+    let datosNombreUsuario = JSON.parse(localStorage.getItem("datosConectado"))
+    if (datosNombreUsuario == null){
+        datosNombreUsuario = "undefined"
+    }
+    document.getElementById("nombre_usuario_conectado").innerText = datosNombreUsuario
+
+    contadorUsuario = 0;
+    contadorAviso = 0;
 }
 
 function desplegarMenuUsuario(){
@@ -53,12 +59,10 @@ function mostrarmenu(a1,a2){
 
 }
 function cambiarFlechaDerecha(a1){
-   let imagen = document.getElementById(a1)
+    let imagen = document.getElementById(a1)
     imagen.style.backgroundImage = "url('./imagenes/flecha-derecha.png')";
 }
 function cambiarFlechaAbajo(a1){
     let imagen = document.getElementById(a1)
     imagen.style.backgroundImage = "url('./imagenes/flecha-abajo.png')";
 }
-
-

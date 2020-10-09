@@ -1,4 +1,3 @@
-
 function usuadmin(){
     let datosusu = JSON.parse(localStorage.getItem("datos"));
     if (datosusu == null){
@@ -32,7 +31,7 @@ function acceder(){
                 else
                 {
                     if (datosusu[x].contra === cont){
-                        usuarioConectado = datosusu[x].nombre;
+                        localStorageUsuarioActivado(datosusu[x].nombre)
                         location.href = "./principal.html";
                     }
                     else{
@@ -51,8 +50,19 @@ function acceder(){
     }
 }
 
+
+
+
+function localStorageUsuarioActivado(nombre) {
+    localStorage.setItem('datosConectado',JSON.stringify(nombre));
+}
+
+
+
 function cerrarSesion(){
+    localStorage.removeItem('datosConectado');
     location.href="./index.html";
+
 }
 
 function anadirusu(){
@@ -127,8 +137,9 @@ function borrardatosaviso(){
 
 function annadirUsuario() {
     //Primero comprobamos que los datos sean correctos
-    let usuarios = JSON.parse(localStorage.getItem("datos"));
+    let usuarios2 = JSON.parse(localStorage.getItem("datos"));
     let errores = comprobacionesTodosCampos()
+
     if (!errores){
         try {
             //Introducimos los datos
@@ -139,13 +150,13 @@ function annadirUsuario() {
             let dni = document.getElementById("dni").value
 
             let u = new Usuario(user,password,name,surname,dni);
-            usuarios.push(u);
-            localStorage.setItem('datos',JSON.stringify(usuarios));
+            usuarios2.push(u);
+            localStorage.setItem('datos',JSON.stringify(usuarios2));
             alert("Usuario "+user+" insertado.")
             borrarCampos()
 
         }catch (err){
-            alert("Error introduciendo datos.")
+            alert("Error introduciendo usuarios")
         }
     }
 
@@ -343,4 +354,3 @@ function listarUsuarios(){
 
 
 }
-

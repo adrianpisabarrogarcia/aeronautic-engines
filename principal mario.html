@@ -5,13 +5,12 @@
     <title>AeroNautics SA</title>
     <link rel="icon" type="image/x-icon" href="imagenes/logo_vertical.png">
     <link href="CSS/principal.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
 <body  onload="contadores()">
 <header >
     <img id="logo" src="imagenes/logo_horizontal_negativo.png">
     <div id="ajustes_usuario">
-        <button onclick="desplegarAjustesUsuario()" id="username" class="desplegar3"><img src="imagenes/persona.png"><span id="nombre_usuario_conectado"></span></button>
+        <button onclick="desplegarAjustesUsuario()" id="username" class="desplegar3"><img  src="imagenes/persona.png"><span id="nombre_usuario_conectado"></span></button>
         <div id="configuracion" class="opciones">
             <div id="ajustes">
                 <button onclick="modificarusu()"><img src="imagenes/ajustes.png"></img>Ajustes</button>
@@ -20,9 +19,6 @@
                 <button><img src="imagenes/cerrar-sesion.png">Cerrar sesión</button>
             </div>
         </div>
-    </div>
-    <div class="menu">
-        <button onclick="abrirmenu()">EJEMPLO</button>
     </div>
 
 </header>
@@ -48,16 +44,16 @@
         </div>
 
         <div id="menu_aviso">
-            <button onclick="desplegarMenuAviso()" id="fondo_flecha2" class="desplegar2"><a>Anuncios</a></button>
+            <button onclick="desplegarMenuAviso()" id="fondo_flecha2" class="desplegar2"><a>Avisos</a></button>
             <div id="despliegue2" class="contenido2">
                 <div id="añadir_aviso">
-                    <button onclick="anadiraviso()">Añadir anuncio</button>
+                    <button onclick="anadiraviso()">Añadir aviso</button>
                 </div>
                 <div id="borrar_aviso">
-                    <button onclick="borraraviso()">Borrar anuncio</button>
+                    <button onclick="borraraviso()">Borrar aviso</button>
                 </div>
                 <div id="modificar _aviso">
-                    <button onclick="modaviso()">Modificar anuncio</button>
+                    <button onclick="modaviso()">Modificar aviso</button>
                 </div>
                 <div id="tablon">
                     <button onclick="tablon()">Tablón de anuncios</button>
@@ -141,7 +137,7 @@
             <label for="pass">Contraseña: </label>
             <input type="password" id="pass" name="Contraseña">
 
-            <button type="button" onclick="modificarUsuario()">Modificar usuario</button>
+            <button type="button" onclick="modificarUsuario()">Modificar</button>
         </div>
     </div>
     <div id="lista_usuarios">
@@ -151,38 +147,38 @@
     </div>
 
     <div id="crear_aviso">
-        <h1>Crear anuncio</h1>
+        <h1>Crear aviso</h1>
         <div>
             <form method="post" action="">
-                <label for="title">Título: </label>
+                <label for="tit">Título: </label>
                 <input type="text" id="tit" name="Title">
                 <br>
-                <label for="fecha">Fecha: </label>
-                <input type="text" id="fech" name="Date">
-                <label for="desc">Descripción:</label>
+                <label for="fech">Fecha: </label>
+                <input type="text" id="fech" name="Date" placeholder="dd/MM/yyyy">
+                <label for="descrip">Descripción:</label>
                 <textarea id="descrip" name="Description"
                           placeholder="Escribe aquí la descripción del aviso."></textarea>
 
             </form>
         </div>
-        <button type="button" name="crear_aviso" onclick="">Crear anuncio</button>
+        <button type="button" name="crear_aviso" onclick="">Crear aviso</button>
     </div>
 
     <div id="borrar_anuncio">
-        <h1>Borrar anuncio</h1>
+        <h1>Borrar aviso</h1>
         <div id="borrar_avi">
-            <label for="borrar_anun">Buscar anuncio: </label>
-            <input type="text" id="borrar_anun" name="Borrar" placeholder="Busqueda por Titulo">
+            <label for="borrar_anun">Buscar aviso: </label>
+            <input type="text" id="borrar_anun" name="Borrar" placeholder="Busqueda por ID">
         </div>
-        <button type="button" onclick="" name="Borrar_usuario">Borrar anuncio</button>
+        <button type="button" onclick="" name="Borrar_usuario">Borrar aviso</button>
 
     </div>
     <div id="modificar_aviso">
-        <h1>Modificar anuncio</h1>
+        <h1>Modificar avisos</h1>
         <div id="buscar_anuncio">
-            <label for="buscar_aviso">Buscar anuncio: </label>
-            <input type="text" id="buscar_aviso" name="buscar" placeholder="Busqueda por Titulo">
-            <button type="button" onclick="">Buscar anuncio</button>
+            <label for="buscar_aviso">Buscar aviso: </label>
+            <input type="text" id="buscar_aviso" name="buscar" placeholder="Busqueda por ID">
+            <button type="button" onclick="">Buscar aviso</button>
         </div>
         <div id="modify_aviso">
             <label for="title">Título: </label>
@@ -192,7 +188,7 @@
             <input type="text" id="date" name="Date">
             <label id="label_descripcion" for="desc">Descripción:</label>
             <textarea id="desc" name="Description" placeholder="Escribe aquí la descripción del aviso."></textarea>
-            <button type="button" onclick="">Actualizar anuncio</button>
+            <button type="button" onclick="">Actualizar aviso</button>
         </div>
 
     </div>
@@ -202,11 +198,15 @@
 
 </footer>
 </body>
-<script>
-    var usuarioConectado;
-    document.getElementById("nombre_usuario_conectado").innerHTML = "Prueba de pagina";
-</script>
+
+<script src="JS/objetousuario.js"></script>
 <script src="js/menuDesplegable.js"></script>
 <script src="js/portalUsuario.js"></script>
 <script src="JS/textareaAutomatico.js"></script>
+<script>
+    alert(usuarioConectado)
+    document.getElementById("nombre_usuario_conectado").innerHTML = usuarioConectado;
+</script>
+<noscript>Tu navegador no soporta JavaScipt :(</noscript>
+
 </html>
