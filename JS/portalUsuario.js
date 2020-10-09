@@ -1,3 +1,4 @@
+
 function usuadmin(){
     let datosusu = JSON.parse(localStorage.getItem("datos"));
     if (datosusu == null){
@@ -241,7 +242,7 @@ function borrarUsuario() {
         let datosUsu = JSON.parse(localStorage.getItem("datos"));
 
 
-        let user = document.getElementById("user").value
+        let user = document.getElementById("borrar").value
         let i
         for (i = 0; i < datosUsu.length && !(user == datosUsu[i].usuario); i++) {
 
@@ -256,7 +257,6 @@ function borrarUsuario() {
             borrarCampos()
         }
 
-
     }catch (err){
         alert(err)
     }
@@ -268,7 +268,7 @@ function buscarUsuario(){
         let datosUsu = JSON.parse(localStorage.getItem("datos"));
 
 
-        let user = document.getElementById("user").value
+        let user = document.getElementById("buscar_usuario").value
 
         let i
         for (i = 0; i < datosUsu.length && !(user == datosUsu[i].usuario); i++) {
@@ -278,10 +278,14 @@ function buscarUsuario(){
             borrarCampos()
             throw "Usuario no encontrado, prueba a introducir otro usuario"
         }else {
-            document.getElementById("Nombre").value = datosUsu[i].nombre
-            document.getElementById("apellido").value = datosUsu[i].apellido
-            document.getElementById("dni").value = datosUsu[i].dni
-            document.getElementById("contraseña").value = datosUsu[i].contra
+            let div = document.getElementById("mod_usu")
+            div.style.display = "flex";
+            let div2 = document.getElementById("button-buscar-usuario")
+            div2.style.display = "none";
+            document.getElementById("name").value = datosUsu[i].nombre
+            document.getElementById("surname").value = datosUsu[i].apellido
+            document.getElementById("credencial").value = datosUsu[i].dni
+            document.getElementById("pass").value = datosUsu[i].contra
 
             return i
         }
@@ -295,7 +299,7 @@ function modificarUsuario() {
     try{
 
         let datosUsu = JSON.parse(localStorage.getItem("datos"));
-        let user = document.getElementById("user").value
+        let user = document.getElementById("buscar_usuario").value
         let i
         for (i = 0; i < datosUsu.length && !(user == datosUsu[i].usuario); i++)
 
@@ -303,13 +307,13 @@ function modificarUsuario() {
                 borrarCampos()
                 throw "Usuario no encontrado, prueba a introducir otro usuario"
             }
-        let fallos = comprobacionesTodosCampos()
+        let fallos = comprobacionesTodosCampos("name","surname","credencial")
         if (!fallos){
-            datosUsu[i].nombre = document.getElementById("Nombre").value
-            datosUsu[i].apellido = document.getElementById("apellido").value
-            datosUsu[i].dni = document.getElementById("dni").value
-            datosUsu[i].usuario = document.getElementById("user").value
-            datosUsu[i].contra = document.getElementById("contraseña").value
+            datosUsu[i].nombre = document.getElementById("name").value
+            datosUsu[i].apellido = document.getElementById("surname").value
+            datosUsu[i].dni = document.getElementById("credencial").value
+            datosUsu[i].usuario = document.getElementById("buscar_usuario").value
+            datosUsu[i].contra = document.getElementById("pass").value
 
 
             localStorage.setItem('datos',JSON.stringify(datosUsu));
@@ -354,3 +358,4 @@ function listarUsuarios(){
 
 
 }
+
