@@ -1,4 +1,4 @@
-var textarea = document.querySelector('textarea');
+var textarea = document.getElementById('descripcion');
 
 textarea.addEventListener('keydown', autosize);
 

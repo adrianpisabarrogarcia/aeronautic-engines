@@ -75,7 +75,6 @@
 
                 <input type="text" name="Titulo" id="titulo" class="refresh" placeholder="titulo">
                 <br>
-
                 <textarea id="descri" placeholder="Aqui va el texto"></textarea>
 
             </form>
@@ -123,7 +122,7 @@
         <div id="buscar_usu">
             <label for="buscar_usuario">Buscar usuario: </label>
             <input type="text" id="buscar_usuario" name="buscar">
-            <button type="button" onclick="buscarUsuario()">Buscar usuario</button>
+            <button type="button" onclick="buscarUsuario()" id="button-buscar-usuario">Buscar usuario</button>
         </div>
         <div id="mod_usu">
             <label for="name">Nombre: </label>
@@ -135,9 +134,6 @@
             <label for="credencial">DNI: </label>
             <input type="text" id="credencial" name="DNI">
             <br>
-            <label for="usertag">Usuario: </label>
-            <input type="text" id="usertag" name="User">
-            <br>
             <label for="pass">Contraseña: </label>
             <input type="password" id="pass" name="Contraseña">
 
@@ -146,7 +142,7 @@
     </div>
     <div id="lista_usuarios">
         <h1>Lista de usuarios</h1>
-        <textarea id="descripcion" placeholder="Aqui va el texto"></textarea>
+        <textarea id="descripcion" placeholder="Aqui va el texto" disabled></textarea>
 
     </div>
 
@@ -202,11 +198,10 @@
 
 </footer>
 </body>
-<script>
-    var usuarioConectado;
-    document.getElementById("nombre_usuario_conectado").innerHTML = "Prueba de pagina";
-</script>
-<script src="js/menuDesplegable.js"></script>
-<script src="js/portalUsuario.js"></script>
+
+<script src="JS/objetousuario.js"></script>
+<script src="JS/menuDesplegable.js"></script>
+<script src="JS/portalUsuario.js"></script>
 <script src="JS/textareaAutomatico.js"></script>
+<noscript>El navegador no soporta JavaScript 😅</noscript>
 </html>

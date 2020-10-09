@@ -257,19 +257,13 @@ main div form{
     margin-bottom: 0;
 
 }
-#descripcion{
-    width: 80%;
-    overflow: hidden;
-    min-height: 200px;
-    height: auto;
-    border: none;
-    background-color: ghostwhite ;
-    outline: none;
 
-}
 textarea{
     min-height: 200px;
     width: 80%;
+    max-width: 80%;
+    height: auto;
+    overflow: hidden;
 }
 
 main button{
@@ -385,6 +379,7 @@ div#modify_aviso{
 }
 div#lista_usuarios{
     padding-bottom: 5%;
+    height: auto;
 }
 
 #mod_usu{

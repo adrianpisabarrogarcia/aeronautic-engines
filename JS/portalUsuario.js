@@ -139,7 +139,7 @@ function borrardatosaviso(){
 function annadirUsuario() {
     //Primero comprobamos que los datos sean correctos
     let usuarios2 = JSON.parse(localStorage.getItem("datos"));
-    let errores = comprobacionesTodosCampos()
+    let errores = comprobacionesTodosCampos("Nombre","apellido","dni","user","contraseña")
 
     if (!errores){
         try {
@@ -164,14 +164,14 @@ function annadirUsuario() {
 
 }
 
-function comprobacionesTodosCampos(){
+function comprobacionesTodosCampos(nombre2,apellido2,dni2,user2,password2){
     let textoErrores = "No has introducido los siguientes campos bien: "
     let errores = false
     try {
 
 
         //Nombre
-        let nombre = document.getElementById("Nombre").value
+        let nombre = document.getElementById(nombre2).value
         let expNombre = new RegExp("^([A-Za-z]*[ ]?)+$");
         if (!expNombre.test(nombre)){
             textoErrores += " nombre "
@@ -179,7 +179,7 @@ function comprobacionesTodosCampos(){
         }
 
         //Apellido
-        let apellido = document.getElementById("apellido").value
+        let apellido = document.getElementById(apellido2).value
         let expApellido = new RegExp("^([A-Za-z]*[ ]?)+$");
         if (!expApellido.test(apellido)){
             textoErrores += " apellido "
@@ -187,7 +187,7 @@ function comprobacionesTodosCampos(){
         }
 
         //DNI
-        let dni = document.getElementById("dni").value
+        let dni = document.getElementById(dni2).value
         let expDni = new RegExp("^[0-9]{8,8}[A-Za-z]$");
         let dniSinLetra = ""
         for (let i = 0; i < (dni.length - 1); i++) {
@@ -201,7 +201,7 @@ function comprobacionesTodosCampos(){
         }
 
         //Usuario
-        let usuario = document.getElementById("user").value;
+        let usuario = document.getElementById(user2).value;
         let expUsuario = new RegExp("^[A-Za-z0-9]*$");
         if (!expUsuario.test(usuario)){
             textoErrores += " usuario "
@@ -209,8 +209,7 @@ function comprobacionesTodosCampos(){
         }
 
         //Contraseña
-        //Cuidado con utilizar caracteres tipo: ñ
-        let password = document.getElementById("contraseña").value;
+        let password = document.getElementById(password2).value;
         let expPassword = new RegExp("^[A-Za-z0-9]{8,}$");
         if (!expPassword.test(password)){
             textoErrores += " contraseña "
@@ -287,7 +286,7 @@ function buscarUsuario(){
             document.getElementById("credencial").value = datosUsu[i].dni
             document.getElementById("pass").value = datosUsu[i].contra
 
-            return i
+           // return i
         }
 
 
@@ -307,7 +306,7 @@ function modificarUsuario() {
                 borrarCampos()
                 throw "Usuario no encontrado, prueba a introducir otro usuario"
             }
-        let fallos = comprobacionesTodosCampos("name","surname","credencial")
+        let fallos = comprobacionesTodosCampos("name","surname","credencial","buscar_usuario","pass")
         if (!fallos){
             datosUsu[i].nombre = document.getElementById("name").value
             datosUsu[i].apellido = document.getElementById("surname").value
@@ -320,6 +319,10 @@ function modificarUsuario() {
 
 
             alert("Usuario "+datosUsu[i].usuario+" modificado.")
+            let div = document.getElementById("mod_usu")
+            div.style.display = "none";
+            let div2 = document.getElementById("button-buscar-usuario")
+            div2.style.display = "flex";
         }
 
 
@@ -344,18 +347,24 @@ function listarUsuarios(){
             texto += "DNI: "+dni+"\n"
             let user = datosUsu[i].usuario
             texto += "Usuario: "+user+"\n"
-            let password = datosUsu[i].contra
-            texto += "Contraseña: "+password+"\n"
+            //let password = datosUsu[i].contra
+            //texto += "Contraseña: "+password+"\n"
             texto += "\n"
         }
 
-        alert(texto)
+        //alert(texto)
+        document.getElementById("descripcion").value = texto
+
+
 
     }catch (err){
         alert("Error listando usuarios")
     }
 
-
-
 }
+
+
+
+
+
 
