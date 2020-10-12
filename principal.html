@@ -22,13 +22,16 @@
         </div>
     </div>
     <div class="menu">
-        <button onclick="abrirmenu()">EJEMPLO</button>
+        <button onclick="abrirmenu()"><img src="imagenes/imegenmenu.png"></button>
     </div>
 
 </header>
 
 <aside>
     <div id="sticky">
+		<div id="imagenmenu">
+            <img src="imagenes/logo_horizontal_negativo.png" /><h2>MENU<button onclick="salirmenu()">X</button></h2>
+        </div>
         <div id="menu_usuario">
             <button onclick="desplegarMenuUsuario()" id="fondo_flecha1" class="desplegar"><a>Usuarios</a></button>
             <div id="despliegue" class="contenido">
@@ -38,7 +41,7 @@
                 <div id="borrar_usu">
                     <button onclick="borrarusu()">Borrar usuario</button>
                 </div>
-                <div id="modificar _usu">
+                <div id="modificar _usu" onload="this">
                     <button onclick="modificarusu()">Modificar usuario</button>
                 </div>
                 <div id="lista _usu">
@@ -70,16 +73,14 @@
 <main>
     <div id="tablonAnuncios">
         <h1>Tablón de anuncios</h1>
-            <form action="" method="post">
+            <form>
                 <input type="text" name="Fecha" id="fecha" class="refresh" placeholder="fecha">
 
                 <input type="text" name="Titulo" id="titulo" class="refresh" placeholder="titulo">
                 <br>
-
-                <textarea id="descri" placeholder="Aqui va el texto"></textarea>
-
+                <textarea id="descri" placeholder="Aqui va el texto" disabled></textarea>
             </form>
-        <button type="button" name="Actualizar" onclick="anterior()"><img src="imagenes/anterior.png"></button>
+        <button type="button" id="siguiente" name="Actualizar" onclick="anterior()"><img src="imagenes/anterior.png"></button>
         <button type="button" name="Actualizar" onclick="siguiente()"><img src="imagenes/siguiente.png"></button>
 
     </div>
@@ -123,9 +124,10 @@
         <div id="buscar_usu">
             <label for="buscar_usuario">Buscar usuario: </label>
             <input type="text" id="buscar_usuario" name="buscar">
-            <button type="button" onclick="buscarUsuario()">Buscar usuario</button>
+            <button type="button" onclick="buscarUsuario()" id="button-buscar-usuario">Buscar usuario</button>
         </div>
         <div id="mod_usu">
+            <span>¡Recuerda! Por seguridad no puedes modificar el usuario.</span>
             <label for="name">Nombre: </label>
             <input type="text" id="name" name="nombre">
             <br>
@@ -135,18 +137,16 @@
             <label for="credencial">DNI: </label>
             <input type="text" id="credencial" name="DNI">
             <br>
-            <label for="usertag">Usuario: </label>
-            <input type="text" id="usertag" name="User">
-            <br>
             <label for="pass">Contraseña: </label>
             <input type="password" id="pass" name="Contraseña">
 
             <button type="button" onclick="modificarUsuario()">Modificar usuario</button>
+            <button type="button" onclick="volverABuscar()">Volver atrás</button>
         </div>
     </div>
     <div id="lista_usuarios">
         <h1>Lista de usuarios</h1>
-        <textarea id="descripcion" placeholder="Aqui va el texto"></textarea>
+        <span id="listaUsuarios"></span>
 
     </div>
 
@@ -154,18 +154,18 @@
         <h1>Crear anuncio</h1>
         <div>
             <form method="post" action="">
-                <label for="title">Título: </label>
+                <label for="Title">Título: </label>
                 <input type="text" id="tit" name="Title">
                 <br>
-                <label for="fecha">Fecha: </label>
-                <input type="text" id="fech" name="Date">
-                <label for="desc">Descripción:</label>
+                <label for="Date">Fecha: </label>
+                <input type="text" id="fech" name="Date" placeholder="dd/mm/yyyy">
+                <label for="Description">Descripción:</label>
                 <textarea id="descrip" name="Description"
                           placeholder="Escribe aquí la descripción del aviso."></textarea>
 
             </form>
         </div>
-        <button type="button" name="crear_aviso" onclick="">Crear anuncio</button>
+        <button type="button" name="crear_aviso" onclick="crearAviso()">Crear anuncio</button>
     </div>
 
     <div id="borrar_anuncio">
@@ -174,7 +174,7 @@
             <label for="borrar_anun">Buscar anuncio: </label>
             <input type="text" id="borrar_anun" name="Borrar" placeholder="Busqueda por Titulo">
         </div>
-        <button type="button" onclick="" name="Borrar_usuario">Borrar anuncio</button>
+        <button type="button" onclick="borrarAviso()" name="Borrar_aviso">Borrar anuncio</button>
 
     </div>
     <div id="modificar_aviso">
@@ -182,7 +182,7 @@
         <div id="buscar_anuncio">
             <label for="buscar_aviso">Buscar anuncio: </label>
             <input type="text" id="buscar_aviso" name="buscar" placeholder="Busqueda por Titulo">
-            <button type="button" onclick="">Buscar anuncio</button>
+            <button type="button" onclick="modificarAviso()">Buscar anuncio</button>
         </div>
         <div id="modify_aviso">
             <label for="title">Título: </label>
@@ -192,7 +192,7 @@
             <input type="text" id="date" name="Date">
             <label id="label_descripcion" for="desc">Descripción:</label>
             <textarea id="desc" name="Description" placeholder="Escribe aquí la descripción del aviso."></textarea>
-            <button type="button" onclick="">Actualizar anuncio</button>
+            <button type="button" onclick="actualizarAviso()">Actualizar anuncio</button>
         </div>
 
     </div>
@@ -202,11 +202,12 @@
 
 </footer>
 </body>
-<script>
-    var usuarioConectado;
-    document.getElementById("nombre_usuario_conectado").innerHTML = "Prueba de pagina";
-</script>
-<script src="js/menuDesplegable.js"></script>
-<script src="js/portalUsuario.js"></script>
+
+<script src="JS/objetousuario.js"></script>
+<script src="JS/menuDesplegable.js"></script>
 <script src="JS/textareaAutomatico.js"></script>
+<script src="JS/portalUsuario.js"></script>
+<script src="JS/portalAvisos.js"></script>
+<script src="JS/claseAviso.js"></script>
+<noscript>El navegador no soporta JavaScript :(</noscript>
 </html>
