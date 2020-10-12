@@ -77,3 +77,13 @@ function cambiarFlechaAbajo(a1){
     let imagen = document.getElementById(a1)
     imagen.style.backgroundImage = "url('./imagenes/flecha-abajo.png')";
 }
+
+//menu en movil abrir y cerrarlo
+function abrirmenu(){
+    document.getElementById("sticky").style.display="block";
+    document.getElementById("imagenmenu").style.display="block";
+}
+
+function salirmenu(){
+    document.getElementById("sticky").style.display="none";
+}
