@@ -28,6 +28,7 @@ header{
     background-color: #1f1f1e;
     opacity: 70%;
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
 }
 img{
