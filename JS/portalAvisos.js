@@ -12,6 +12,7 @@ function borraraviso() {
 function modaviso() {
     mostraryocultar("modificar_aviso", "crear_usuario", "borrar_usuario", "modificar_usuario", "lista_usuarios", "crear_aviso", "borrar_anuncio", "tablonAnuncios");
     borrar();
+    restablecerDivModificarAvisos();
 }
 
 function tablon() {
@@ -71,7 +72,10 @@ function crearAviso() {
             let titulo = document.getElementById("tit").value;
             let fecha = document.getElementById("fech").value;
             let descripcion = document.getElementById("descrip").value;
-
+            let dia = fecha.substring(8);
+            let mes = fecha.substring(5, 7);
+            let anno = fecha.substring(0,4);
+            fecha= dia+"/"+mes+"/"+anno;
             let avis = new Aviso(titulo, fecha, descripcion);
             avisos2.push(avis);
             localStorage.setItem('datosAviso', JSON.stringify(avisos2));
@@ -132,7 +136,11 @@ function modificarAviso() {
             div2.style.display = "none";
 
             document.getElementById("title").value = datosAviso[i].titulo;
-            document.getElementById("date").value = datosAviso[i].fecha;
+            let dia = datosAviso[i].fecha.substring(0,2);
+            let mes = datosAviso[i].fecha.substring(3, 5);
+            let anno = datosAviso[i].fecha.substring(6);
+            let fecha= anno+"-"+mes+"-"+dia;
+            document.getElementById("date").value = fecha;
             document.getElementById("desc").value = datosAviso[i].descripcion;
         }
 
@@ -164,17 +172,18 @@ function actualizarAviso() {
 
             listaAvisos[i].titulo = titul;
 
+            let dia = fech.substring(8);
+            let mes = fech.substring(5, 7);
+            let anno = fech.substring(0,4);
+            fech= dia+"/"+mes+"/"+anno;
             listaAvisos[i].fecha = fech;
+
 
             listaAvisos[i].descripcion = descripcio;
 
             localStorage.setItem('datosAviso', JSON.stringify(listaAvisos));
 
-            let div = document.getElementById("modify_aviso")
-            div.style.display = "none";
-            let div2 = document.getElementById("buscar_anuncio")
-            div2.style.display = "flex";
-            document.getElementById("buscar_aviso").value = ""
+            restablecerDivModificarAvisos();
 
         } catch (e) {
             alert(e);
@@ -182,6 +191,13 @@ function actualizarAviso() {
 
     }
 
+}
+function restablecerDivModificarAvisos(){
+    let div = document.getElementById("modify_aviso")
+    div.style.display = "none";
+    let div2 = document.getElementById("buscar_anuncio")
+    div2.style.display = "flex";
+    document.getElementById("buscar_aviso").value = ""
 }
 
 function mostrarAnuncio() {
@@ -258,21 +274,21 @@ function comprobarDatosAviso(titulo2, fecha2, descripcion2) {
 
         //Fecha
         let fecha = document.getElementById(fecha2).value;
-        let expfecha = new RegExp("^(([0-2][0-9]|3[0-1])/(0[1-9]|1[0-2)])/(19[7-9][0-9]|20[0-1][0-9]|2020))$");
+        /*let expfecha = new RegExp("^(([0-2][0-9]|3[0-1])/(0[1-9]|1[0-2)])/(19[7-9][0-9]|20[0-1][0-9]|2020))$");
         if (!expfecha.test(fecha)) {
             textoerror += "El formato de la fecha es incorrecto.\n";
             erroravisos = true;
-        } else {
-            let dia = fecha.substring(0, 2);
-            let mes = fecha.substring(3, 5);
-            let anno = fecha.substring(6);
+        }*/
+            let dia = fecha.substring(8);
+            let mes = fecha.substring(5, 7);
+            let anno = fecha.substring(0,4);
             let fechaDate = new Date(anno, mes - 1, dia);
             let fechaHoy = new Date();
             if (fechaDate > fechaHoy) {
                 textoerror += "La fecha introducida no es posible.\n"
                 erroravisos = true;
             }
-        }
+
         //Decripcion
         let descrition = document.getElementById(descripcion2).value;
         if (descrition == "") {
