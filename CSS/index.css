@@ -131,3 +131,8 @@ button:hover{
 }
 
 
+@media (min-width: 568px) and (orientation: landscape) {
+    main img{
+        width: 30%;
+    }
+}
