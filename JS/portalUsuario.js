@@ -165,14 +165,15 @@ function annadirUsuario() {
 }
 
 function comprobacionesTodosCampos(nombre2,apellido2,dni2,user2,password2){
+
+
     let textoErrores = "No has introducido los siguientes campos bien: "
     let errores = false
     try {
 
-
         //Nombre
         let nombre = document.getElementById(nombre2).value
-        let expNombre = new RegExp("^([A-Za-z]*[ ]?)+$");
+        let expNombre = new RegExp("^([A-Za-z]+[ ]?)+$");
         if (!expNombre.test(nombre)){
             textoErrores += " nombre "
             errores = true
@@ -180,7 +181,7 @@ function comprobacionesTodosCampos(nombre2,apellido2,dni2,user2,password2){
 
         //Apellido
         let apellido = document.getElementById(apellido2).value
-        let expApellido = new RegExp("^([A-Za-z]*[ ]?)+$");
+        let expApellido = new RegExp("^([A-Za-z]+[ ]?)+$");
         if (!expApellido.test(apellido)){
             textoErrores += " apellido "
             errores = true
@@ -202,7 +203,7 @@ function comprobacionesTodosCampos(nombre2,apellido2,dni2,user2,password2){
 
         //Usuario
         let usuario = document.getElementById(user2).value;
-        let expUsuario = new RegExp("^[A-Za-z0-9]*$");
+        let expUsuario = new RegExp("^[A-Za-z0-9]+$");
         if (!expUsuario.test(usuario)){
             textoErrores += " usuario "
             errores = true
@@ -219,8 +220,6 @@ function comprobacionesTodosCampos(nombre2,apellido2,dni2,user2,password2){
         //Cuando encuentra errores
         if (errores){
             throw textoErrores
-
-
         }
 
         return errores
@@ -286,7 +285,6 @@ function buscarUsuario(){
             document.getElementById("credencial").value = datosUsu[i].dni
             document.getElementById("pass").value = datosUsu[i].contra
 
-           // return i
         }
 
 
@@ -302,10 +300,10 @@ function modificarUsuario() {
         let i
         for (i = 0; i < datosUsu.length && !(user == datosUsu[i].usuario); i++)
 
-            if (i == datosUsu.length){
+        if (i == datosUsu.length){
                 borrarCampos()
                 throw "Usuario no encontrado, prueba a introducir otro usuario"
-            }
+        }
         let fallos = comprobacionesTodosCampos("name","surname","credencial","buscar_usuario","pass")
         if (!fallos){
             datosUsu[i].nombre = document.getElementById("name").value
@@ -353,7 +351,7 @@ function listarUsuarios(){
         }
 
         //alert(texto)
-        document.getElementById("descripcion").value = texto
+        document.getElementById("listaUsuarios").innerText = texto
 
 
 
@@ -362,9 +360,3 @@ function listarUsuarios(){
     }
 
 }
-
-
-
-
-
-
