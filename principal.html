@@ -7,7 +7,7 @@
     <link href="CSS/principal.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
-<body  onload="contadores()">
+<body  onload="primeraviso()">
 <header >
     <img id="logo" src="imagenes/logo_horizontal_negativo.png">
     <div id="ajustes_usuario">
@@ -74,9 +74,9 @@
     <div id="tablonAnuncios">
         <h1>Tablón de anuncios</h1>
             <form>
-                <input type="text" name="Fecha" id="fecha" class="refresh" placeholder="fecha">
+                <input type="text" name="Fecha" id="fecha" class="refresh" placeholder="fecha" disabled>
 
-                <input type="text" name="Titulo" id="titulo" class="refresh" placeholder="titulo">
+                <input type="text" name="Titulo" id="titulo" class="refresh" placeholder="titulo" disabled>
                 <br>
                 <textarea id="descri" placeholder="Aqui va el texto" disabled></textarea>
             </form>
@@ -154,12 +154,12 @@
         <h1>Crear anuncio</h1>
         <div>
             <form method="post" action="">
-                <label for="Title">Título: </label>
+                <label for="tit">Título: </label>
                 <input type="text" id="tit" name="Title">
                 <br>
-                <label for="Date">Fecha: </label>
+                <label for="fech">Fecha: </label>
                 <input type="text" id="fech" name="Date" placeholder="dd/mm/yyyy">
-                <label for="Description">Descripción:</label>
+                <label for="descrip">Descripción:</label>
                 <textarea id="descrip" name="Description"
                           placeholder="Escribe aquí la descripción del aviso."></textarea>
 

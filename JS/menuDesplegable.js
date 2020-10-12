@@ -4,25 +4,18 @@ var contadorUsuario=0;
 var contadorAviso=0;
 
 function contadores(){
-    let datoAviso = JSON.parse(localStorage.getItem('datosAviso'));
-    console.log(datoAviso);
-
-
-
-
     let datosNombreUsuario = JSON.parse(localStorage.getItem("datosConectado"))
     if (datosNombreUsuario == null){
         datosNombreUsuario = "undefined"
     }
     document.getElementById("nombre_usuario_conectado").innerText = datosNombreUsuario;
 
+    let datoAviso = JSON.parse(localStorage.getItem('datosAviso'));
+    console.log(datoAviso);
 
 
     contadorUsuario = 0;
     contadorAviso = 0;
-
-
-
 }
 
 function desplegarMenuUsuario(){

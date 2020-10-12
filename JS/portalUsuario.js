@@ -87,25 +87,6 @@ function listausu(){
     borrar();
 }
 
-function anadiraviso(){
-    mostraryocultar("crear_aviso","crear_usuario","borrar_usuario","lista_usuarios","modificar_usuario","borrar_anuncio","modificar_aviso","tablonAnuncios");
-    borrar();
-}
-
-function borraraviso(){
-    mostraryocultar("borrar_anuncio","crear_aviso","crear_usuario","lista_usuarios","borrar_usuario","modificar_usuario","modificar_aviso","tablonAnuncios");
-    borrar();
-}
-
-function modaviso(){
-    mostraryocultar("modificar_aviso","crear_usuario","borrar_usuario","modificar_usuario","lista_usuarios","crear_aviso","borrar_anuncio","tablonAnuncios");
-    borrar();
-}
-
-function tablon(){
-    mostraryocultar("tablonAnuncios","crear_usuario","borrar_usuario","modificar_usuario","lista_usuarios","crear_aviso","borrar_anuncio","modificar_aviso");
-    borrar();
-}
 
 function mostraryocultar(a1,a2,a3,a4,a5,a6,a7,a8){
     document.getElementById(a1).style.display="flex";
@@ -354,7 +335,7 @@ function listarUsuarios(){
             texto += "DNI: "+dni+"\n"
             let user = datosUsu[i].usuario
             texto += "Usuario: "+user+"\n"
-            //No vamos a incluir la contraseña por seguridad para que otros usuarios puedan verla, si podrán modificarla
+            //No vamos a incluir la contraseña por seguridad para que otros usuarios no puedan verla, pero sí podrán modificarla
             //let password = datosUsu[i].contra
             //texto += "Contraseña: "+password+"\n"
             texto += "\n"
