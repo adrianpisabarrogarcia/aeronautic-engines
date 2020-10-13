@@ -1,27 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     font-family: 'Hind', sans-serif;
 }
 
- body{
+html {
+    overflow: hidden;
+}
+
+body {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-     background-image: url("../imagenes/fondo_login.jpg");
-     background-repeat: no-repeat;
-     background-size:cover;
-     background-position-y:55%;
+    background-image: url("../imagenes/fondo_login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 55%;
 }
 
 /*Header: contiene el logo y una lista desplegable para cerrar la sesión del  trabajador*/
 
-header{
+header {
     width: 100%;
-	height: 100px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -31,12 +36,22 @@ header{
     position: -webkit-sticky;
     top: 0;
 }
-img{
+
+img {
     width: 30px;
     height: 30px;
 }
-img#logo{
+
+#llevarAinicio {
     width: 15%;
+    background-color: #1f1f1e;
+    outline: none;
+    border: none;
+
+}
+
+img#logo {
+    width: 100%;
     height: auto;
     margin: 0.4% 0;
     margin-left: 1%;
@@ -45,14 +60,14 @@ img#logo{
 
 /*Menu de la configuración del usuario que ha iniciado sesion.*/
 
-#ajustes_usuario{
+#ajustes_usuario {
     width: 15%;
     position: absolute;
     height: 100%;
     right: 0;
 }
 
-#ajustes_usuario > button{
+#ajustes_usuario > button {
     width: 100%;
     height: 100%;
     border: none;
@@ -70,32 +85,35 @@ img#logo{
 }
 
 
-#configuracion{
-    width:100%;
+#configuracion {
+    width: 100%;
     height: auto;
 }
-#configuracion div button{
-    padding:12px 0;
+
+#configuracion div button {
+    padding: 12px 0;
     width: 100%;
     background-color: #1f1f1e;
     color: white;
     outline: none;
     display: flex;
-    justify-content: center ;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
 }
-#ajustes img{
+
+#ajustes img {
     position: relative;
     left: -15%;
 }
-#cerrar_sesion button img{
+
+#cerrar_sesion button img {
     position: relative;
     left: -6%;
 }
 
 
-aside{
+aside {
     width: 30%;
     height: 90vh;
     display: flex;
@@ -106,12 +124,17 @@ aside{
 
 /*Div para que el menu desplegable se mueva de acurdeo al scroll realizado. Dentro del div sticky se encuentran los dos menus desplegables restantes*/
 
-#sticky{
+#sticky {
     width: 30%;
     position: fixed;
     top: 18%;
 }
-#menu_usuario{
+
+#imagenmenu {
+    display: none;
+}
+
+#menu_usuario {
 
     width: 50%;
     height: auto;
@@ -121,7 +144,8 @@ aside{
 
 
 }
-#menu_aviso{
+
+#menu_aviso {
     margin: 0;
     width: 50%;
     height: auto;
@@ -129,11 +153,12 @@ aside{
     z-index: 1;
 
 }
-.desplegar, .desplegar2{
+
+.desplegar, .desplegar2 {
     background-image: url("../imagenes/flecha-derecha.png");
     background-position: 80%;
     background-size: 10%;
-    background-repeat:no-repeat ;
+    background-repeat: no-repeat;
     background-color: #1f1f1e;
 
     width: 100%;
@@ -143,9 +168,11 @@ aside{
     text-align: left;
     outline: none;
 }
-.flecha_abajo{
+
+.flecha_abajo {
     display: none;
 }
+
 .desplegar, .desplegar2, .desplegar3 {
     position: relative;
     display: flex;
@@ -154,14 +181,16 @@ aside{
     font-size: 1.2em;
     font-weight: bolder;
 }
+
 .contenido, .contenido2, .opciones {
     width: 100%;
     height: auto;
     display: none;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
-.contenido div button, .contenido2 div button, .opciones div button  {
+
+.contenido div button, .contenido2 div button, .opciones div button {
     width: 100%;
     color: black;
     padding: 17px 0;
@@ -171,21 +200,24 @@ aside{
     color: white;
     outline: none;
 }
+
 .contenido div button:focus, .contenido2 div button:focus {
     background-color: #383837;
     padding: 25px 2px;
 }
-.contenido div button:hover, .contenido2 div button:hover{
+
+.contenido div button:hover, .contenido2 div button:hover {
     text-decoration: underline;
-    box-shadow:inset 3px 3px 5px black
+    box-shadow: inset 3px 3px 5px black
 }
+
 .mostrar, .mostrar2, .mostrar3 {
-    display:block;
+    display: block;
 }
 
 /*Apartado en  el que se encuentran los bloques de avisos y creacion de usuarios. La mayoria de los elemtnos comparten atributos.*/
 
-main{
+main {
     width: 65%;
     display: flex;
     flex-direction: column;
@@ -194,9 +226,10 @@ main{
     margin-left: 5%;
 
 }
-main > div{
+
+main > div {
     border: 2px solid black;
-    margin-left: 5% ;
+    margin-left: 5%;
     width: 50%;
     height: auto !important;
     display: flex;
@@ -210,19 +243,20 @@ main > div{
 
 
 }
-main > div >h1{
+
+main > div > h1 {
     width: 80%;
     text-align: center;
     border-bottom: 1px solid black;
     margin: 3% 0;
 }
-main > div > div{
+
+main > div > div {
     margin: 0;
 }
 
 
-
-#tablonAnuncios{
+#tablonAnuncios {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -230,7 +264,7 @@ main > div > div{
 }
 
 
-main div form{
+main div form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -241,7 +275,7 @@ main div form{
 
 }
 
-#titulo, #fecha{
+#titulo, #fecha {
     width: 100%;
     text-align: center;
     font-size: 1.3em;
@@ -252,28 +286,30 @@ main div form{
     margin-bottom: 5%;
 }
 
-#fecha{
+#fecha {
     text-align: right;
     padding-right: 10%;
     margin-bottom: 0;
 
 }
-#descripcion{
+
+#descripcion {
     width: 80%;
     overflow: hidden;
     min-height: 200px;
     height: auto;
     border: none;
-    background-color: ghostwhite ;
+    background-color: ghostwhite;
     outline: none;
 
 }
 
-textarea{
+textarea {
     min-height: 200px;
     width: 80%;
 }
-main button{
+
+main button {
     margin: 5% 0;
     border-radius: 100px;
     outline: none;
@@ -288,63 +324,71 @@ main button{
     font-size: 1.2em;
     padding: 1% 5%;
 }
-main button:hover{
-    background-color:#E294A2 ;
+
+main button:hover {
+    background-color: #E294A2;
 }
-main button img{
+
+main button img {
     height: 30px;
 }
 
-main> div > div> form> input:hover,main> div > div> input:hover {
+main > div > div > form > input:hover, main > div > div > input:hover {
     background-color: #E294A2;
-    border:2px solid black;
+    border: 2px solid black;
 }
-#anuncio input{
+
+#anuncio input {
     margin: 0;
 }
+
 /* Codigo para la creacion de usuarios*/
 
-div#nuevo_usu{
+div#nuevo_usu {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#nuevo_usu form{
+
+#nuevo_usu form {
     width: 80%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
 }
- input {
+
+input {
     width: 40%;
     border-radius: 10px;
     margin: 2% 0;
     margin-right: 10%;
     outline: none;
-     text-align: center;
+    text-align: center;
 }
 
- label{
+label {
     width: 30%;
     text-align: center;
     font-size: 1.2em;
     margin-left: 10%;
 }
 
- /*Codigo para el borrado de usuarios.*/
-div#borrar_user, div#borrar_avi{
+/*Codigo para el borrado de usuarios.*/
+div#borrar_user, div#borrar_avi {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
 }
-#borrar_user input{
-width: 35%;
+
+#borrar_user input {
+    width: 35%;
 }
-#buscar_usu, #mod_usu{
+
+#buscar_usu, #mod_usu {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -354,30 +398,40 @@ width: 35%;
     text-align: center;
 
 }
-#buscar_usu label{
+
+#mod_usu span {
+    width: 100%;
+}
+
+#buscar_usu label {
     width: 40%;
     margin-left: 0;
 }
-#crear_aviso label{
+
+#crear_aviso label {
     margin-left: 0;
 }
-#label_descripcion{
+
+#label_descripcion {
     width: 80%;
     margin-left: 0;
 }
-#desc{
+
+#desc {
     width: 80%;
     min-height: 200px;
     overflow: hidden;
 }
-div#buscar_anuncio{
+
+div#buscar_anuncio {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
-div#modify_aviso{
+
+div#modify_aviso {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -385,64 +439,112 @@ div#modify_aviso{
     align-items: center;
     display: none;
 }
-div#lista_usuarios{
+
+div#lista_usuarios {
     padding-bottom: 5%;
 }
 
-#mod_usu{
+#mod_usu {
     display: none;
 }
 
-.menu{
-    display:none;
-}
-
-
-#imagenmenu{
+.menu {
     display: none;
 }
 
-@media only screen and (min-width: 500px) and (max-width: 1300px) {
-    header img#logo{
-        width: 40%;
+
+#imagenmenu {
+    display: none;
+}
+
+@media only screen and (min-width: 824px) and (max-width: 1300px) {
+    header img#logo {
+        width: 20%;
     }
 
-    header #ajustes_usuario{
+    header #ajustes_usuario {
         width: 30%;
     }
 
-    aside{
+    aside {
         width: 25%;
     }
 
-    aside #sticky{
+    aside #sticky {
         width: 50%;
         display: block;
     }
 
-    main{
+    main {
         width: 75%;
         padding: 0;
         margin: 0;
     }
 
-    main div{
+    main div {
         width: 90%;
         margin: 0 auto;
     }
 }
 
-@media only screen and (max-width: 500px){
-    body{
+@media only screen and (min-width: 501px) and (max-width: 823px) {
+    header {
+        height: 10%;
+    }
+
+    #ajustes_usuario {
+        width: 25%;
+    }
+
+    #ajustes button, #cerrar_sesion button {
+        height: 40px;
+    }
+
+    #ajustes button img {
+        margin-left: 9%;
+    }
+
+    #cerrar_sesion button img {
+        margin-left: 15%;
+    }
+
+    #sticky {
+        top: 10%;
+        font-size: 10pt;
+    }
+
+    #sticky div button {
+        padding: 1%;
+        width: 150%;
+    }
+
+    aside {
+        width: 20%;
+    }
+
+    main {
+        margin-top: 1%;
+    }
+
+    main div {
+        margin: 0;
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    body {
         height: 100vh;
     }
-   header{
-       height: 70px;
-       order: 1;
-       z-index: 2;
-       opacity: 90%;
-   }
-    #sticky{
+
+    header {
+        height: 70px;
+        order: 1;
+        z-index: 2;
+        opacity: 90%;
+    }
+
+    #sticky {
         width: 100%;
         height: 100%;
         margin: 0;
@@ -450,19 +552,19 @@ div#lista_usuarios{
         z-index: 3;
         top: 0;
         display: none;
-        background-image: url("../imagenes/fondomenu.jpg");
+        background-color: #3A3939;
     }
 
-    aside{
+    aside {
         width: 100%;
         height: auto;
     }
 
-    #sticky div{
+    #sticky div {
         width: 100%;
     }
 
-    .menu{
+    .menu {
         display: flex;
         position: absolute;
         right: 0;
@@ -470,85 +572,100 @@ div#lista_usuarios{
         top: 0;
     }
 
-    .menu button img{
-        width: 50px;
+    .menu button {
+        background-color: #1f1f1e;
     }
 
-    #ajustes_usuario{
+    .menu button img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #ajustes_usuario {
         width: 100%;
         justify-content: center;
     }
 
-    #ajustes img{
+    #ajustes img {
         left: -14%;
     }
-    #cerrar_sesion button img{
+
+    #cerrar_sesion button img {
         left: -8%;
     }
 
-    #ajustes_usuario #username{
+    #ajustes_usuario #username {
         margin: 0;
         padding: 0;
         border: none;
         justify-content: center;
         background-image: url("../imagenes/logo_vertical_negativo.png");
-        background-position:5%;
+        background-position: 5%;
         background-size: 15%;
         background-repeat: no-repeat;
     }
 
-    #username img{
+    #username img {
         margin-right: 5%;
     }
 
-    main{
+    main {
         order: 2;
         z-index: 1;
         width: 80%;
     }
 
-    main div{
+    main div {
         width: 110%;
         margin-left: 0;
         margin-right: 10%;
     }
 
-    aside{
+    aside {
         order: 3;
         position: relative;
     }
 
-    #imagenmenu img{
-        width: 30%;
-        padding-top: 3%;
-        float: left;
-        padding-left: 2%;
-        margin-right: 15%;
-    }
 
     #imagenmenu {
         width: 100%;
         margin-bottom: 5%;
         font-weight: bold;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
     }
 
-    #imagenmenu h2{
+    #imagenmenu img {
+        width: 60px;
+        height: 60px;
+        padding-top: 3%;
+        float: left;
+        padding-left: 2%;
+    }
+
+    #imagenmenu h2 {
         color: white;
-        display: flex;
-        justify-content:center;
-        padding-top:4%;
-        width: 50%;
+        width: 20%;
+        padding-top: 5%;
     }
 
-    #imagenmenu button{
+    #imagenmenu button {
         width: 40px;
-        height: 20px;
+        height: 40px;
         margin-top: 1%;
-        border: none;
-        margin-left: 45%;
+        border: ghostwhite 1px solid;
+        background-color: #3A3939;
+
     }
 
-    #crear_usuario label{
+    #imagenmenu > button > img {
+        width: 80%;
+        height: 80%;
+    }
+
+    #crear_usuario label {
         font-size: 0.9em;
     }
 }

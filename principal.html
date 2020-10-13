@@ -7,14 +7,15 @@
     <link href="CSS/principal.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
-<body  onload="primeraviso()">
-<header >
-    <img id="logo" src="imagenes/logo_horizontal_negativo.png">
+<body onload="primeraviso()">
+<header>
+    <button id="llevarAinicio" onclick="tablon()"><img id="logo" src="imagenes/logo_horizontal_negativo.png"></button>
     <div id="ajustes_usuario">
-        <button onclick="desplegarAjustesUsuario()" id="username" class="desplegar3"><img src="imagenes/persona.png"><span id="nombre_usuario_conectado"></span></button>
+        <button onclick="desplegarAjustesUsuario()" id="username" class="desplegar3"><img
+                src="imagenes/persona.png"><span id="nombre_usuario_conectado"></span></button>
         <div id="configuracion" class="opciones">
             <div id="ajustes">
-                <button onclick="modificarusu()"><img src="imagenes/ajustes.png"></img>Ajustes</button>
+                <button onclick="modificarUsuDirecto()"><img src="imagenes/ajustes.png"></img>Ajustes</button>
             </div>
             <div onclick="cerrarSesion()" id="cerrar_sesion">
                 <button><img src="imagenes/cerrar-sesion.png">Cerrar sesión</button>
@@ -29,8 +30,10 @@
 
 <aside>
     <div id="sticky">
-		<div id="imagenmenu">
-            <img src="imagenes/logo_horizontal_negativo.png" /><h2>MENÚ<button onclick="salirmenu()">X</button></h2>
+        <div id="imagenmenu">
+            <img src="imagenes/logo_vertical_negativo.png"/>
+            <h2>MENÚ</h2>
+            <button onclick="salirmenu()"><img src="imagenes/salir.png"></button>
         </div>
         <div id="menu_usuario">
             <button onclick="desplegarMenuUsuario()" id="fondo_flecha1" class="desplegar"><a>Usuarios</a></button>
@@ -73,14 +76,15 @@
 <main>
     <div id="tablonAnuncios">
         <h1>Tablón de anuncios</h1>
-            <form>
-                <input type="text" name="Fecha" id="fecha" class="refresh" placeholder="fecha" disabled>
+        <form>
+            <input type="text" name="Fecha" id="fecha" class="refresh" placeholder="fecha" disabled>
 
-                <input type="text" name="Titulo" id="titulo" class="refresh" placeholder="titulo" disabled>
-                <br>
-                <textarea id="descri" placeholder="Aqui va el texto" disabled></textarea>
-            </form>
-        <button type="button" id="siguiente" name="Actualizar" onclick="anterior()"><img src="imagenes/anterior.png"></button>
+            <input type="text" name="Titulo" id="titulo" class="refresh" placeholder="titulo" disabled>
+            <br>
+            <textarea id="descri" placeholder="Aqui va el texto" disabled></textarea>
+        </form>
+        <button type="button" id="siguiente" name="Actualizar" onclick="anterior()"><img src="imagenes/anterior.png">
+        </button>
         <button type="button" name="Actualizar" onclick="siguiente()"><img src="imagenes/siguiente.png"></button>
 
     </div>
@@ -173,6 +177,7 @@
         <div id="borrar_avi">
             <label for="borrar_anun">Buscar anuncio: </label>
             <input type="text" id="borrar_anun" name="Borrar" placeholder="Busqueda por Titulo">
+
         </div>
         <button type="button" onclick="borrarAviso()" name="Borrar_aviso">Borrar anuncio</button>
 
@@ -198,14 +203,11 @@
     </div>
 </main>
 
-<footer>
 
-</footer>
 </body>
 
 <script src="JS/objetousuario.js"></script>
 <script src="JS/menuDesplegable.js"></script>
-<script src="JS/textareaAutomatico.js"></script>
 <script src="JS/portalUsuario.js"></script>
 <script src="JS/portalAvisos.js"></script>
 <script src="JS/claseAviso.js"></script>

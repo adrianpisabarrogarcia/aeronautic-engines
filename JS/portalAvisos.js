@@ -7,6 +7,7 @@ function anadiraviso() {
 function borraraviso() {
     mostraryocultar("borrar_anuncio", "crear_aviso", "crear_usuario", "lista_usuarios", "borrar_usuario", "modificar_usuario", "modificar_aviso", "tablonAnuncios");
     borrar();
+
 }
 
 function modaviso() {
@@ -74,8 +75,11 @@ function crearAviso() {
             let descripcion = document.getElementById("descrip").value;
             let dia = fecha.substring(8);
             let mes = fecha.substring(5, 7);
-            let anno = fecha.substring(0,4);
-            fecha= dia+"/"+mes+"/"+anno;
+            let anno = fecha.substring(0, 4);
+            fecha = dia + "/" + mes + "/" + anno;
+            if (fecha == "//") {
+                throw "La fecha es obligatoria";
+            }
             let avis = new Aviso(titulo, fecha, descripcion);
             avisos2.push(avis);
             localStorage.setItem('datosAviso', JSON.stringify(avisos2));
@@ -136,10 +140,10 @@ function modificarAviso() {
             div2.style.display = "none";
 
             document.getElementById("title").value = datosAviso[i].titulo;
-            let dia = datosAviso[i].fecha.substring(0,2);
+            let dia = datosAviso[i].fecha.substring(0, 2);
             let mes = datosAviso[i].fecha.substring(3, 5);
             let anno = datosAviso[i].fecha.substring(6);
-            let fecha= anno+"-"+mes+"-"+dia;
+            let fecha = anno + "-" + mes + "-" + dia;
             document.getElementById("date").value = fecha;
             document.getElementById("desc").value = datosAviso[i].descripcion;
         }
@@ -174,8 +178,8 @@ function actualizarAviso() {
 
             let dia = fech.substring(8);
             let mes = fech.substring(5, 7);
-            let anno = fech.substring(0,4);
-            fech= dia+"/"+mes+"/"+anno;
+            let anno = fech.substring(0, 4);
+            fech = dia + "/" + mes + "/" + anno;
             listaAvisos[i].fecha = fech;
 
 
@@ -192,7 +196,8 @@ function actualizarAviso() {
     }
 
 }
-function restablecerDivModificarAvisos(){
+
+function restablecerDivModificarAvisos() {
     let div = document.getElementById("modify_aviso")
     div.style.display = "none";
     let div2 = document.getElementById("buscar_anuncio")
@@ -279,15 +284,19 @@ function comprobarDatosAviso(titulo2, fecha2, descripcion2) {
             textoerror += "El formato de la fecha es incorrecto.\n";
             erroravisos = true;
         }*/
-            let dia = fecha.substring(8);
-            let mes = fecha.substring(5, 7);
-            let anno = fecha.substring(0,4);
-            let fechaDate = new Date(anno, mes - 1, dia);
-            let fechaHoy = new Date();
-            if (fechaDate > fechaHoy) {
-                textoerror += "La fecha introducida no es posible.\n"
-                erroravisos = true;
-            }
+        let dia = fecha.substring(8);
+        let mes = fecha.substring(5, 7);
+        let anno = fecha.substring(0, 4);
+        let fechaDate = new Date(anno, mes - 1, dia);
+        let fechaHoy = new Date();
+        if (fechaDate > fechaHoy) {
+            textoerror += "La fecha introducida no es posible.\n"
+            erroravisos = true;
+        }
+        if (fecha2 == "--") {
+            erroravisos = true;
+            textoerror += "La fecha es obligatoria";
+        }
 
         //Decripcion
         let descrition = document.getElementById(descripcion2).value;
