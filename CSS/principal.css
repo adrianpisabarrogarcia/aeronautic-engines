@@ -47,8 +47,9 @@ img {
     background-color: #1f1f1e;
     outline: none;
     border: none;
-
 }
+
+
 
 img#logo {
     width: 100%;
@@ -127,7 +128,7 @@ aside {
 #sticky {
     width: 30%;
     position: fixed;
-    top: 18%;
+    top: 20%;
 }
 
 #imagenmenu {
@@ -485,6 +486,10 @@ div#lista_usuarios {
         width: 90%;
         margin: 0 auto;
     }
+
+    #llevarAinicio > img{
+        width: 100% !important;
+    }
 }
 
 @media only screen and (min-width: 501px) and (max-width: 823px) {
@@ -530,6 +535,7 @@ div#lista_usuarios {
         margin: 0;
         width: 75%;
     }
+
 }
 
 @media only screen and (max-width: 500px) {
@@ -655,7 +661,7 @@ div#lista_usuarios {
         width: 40px;
         height: 40px;
         margin-top: 1%;
-        border: ghostwhite 1px solid;
+        border: none;
         background-color: #3A3939;
 
     }

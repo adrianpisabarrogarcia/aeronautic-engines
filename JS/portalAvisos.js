@@ -180,13 +180,16 @@ function actualizarAviso() {
             let mes = fech.substring(5, 7);
             let anno = fech.substring(0, 4);
             fech = dia + "/" + mes + "/" + anno;
+            if (fech == "//") {
+                throw "La fecha es obligatoria";
+            }
             listaAvisos[i].fecha = fech;
 
 
             listaAvisos[i].descripcion = descripcio;
 
             localStorage.setItem('datosAviso', JSON.stringify(listaAvisos));
-
+            alert("Aviso "+titul+" modificado");
             restablecerDivModificarAvisos();
 
         } catch (e) {

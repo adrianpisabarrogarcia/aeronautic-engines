@@ -123,12 +123,21 @@ function annadirUsuario() {
             let name = document.getElementById("Nombre").value
             let surname = document.getElementById("apellido").value
             let dni = document.getElementById("dni").value
+            let i;
+            for (i = 0; i < usuarios2.length && user != usuarios2[i].usuario; i++) {
 
-            let u = new Usuario(user, password, name, surname, dni);
-            usuarios2.push(u);
-            localStorage.setItem('datos', JSON.stringify(usuarios2));
-            alert("Usuario " + user + " insertado.")
-            borrarCampos()
+            }
+            if (i == usuarios2.length){
+                let u = new Usuario(user, password, name, surname, dni);
+                usuarios2.push(u);
+                localStorage.setItem('datos', JSON.stringify(usuarios2));
+                alert("Usuario " + user + " insertado.")
+                borrarCampos()
+            }else {
+                alert("El usuario ya estaba creado anteriormente.")
+                borrarCampos()
+            }
+
 
         } catch (err) {
             alert("Error introduciendo usuarios")
