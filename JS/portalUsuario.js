@@ -156,7 +156,7 @@ function comprobacionesTodosCampos(nombre2, apellido2, dni2, user2, password2) {
 
         //Nombre
         let nombre = document.getElementById(nombre2).value
-        let expNombre = new RegExp("^([A-Za-z]+[ ]?)+$");
+        let expNombre = new RegExp("^([A-Za-zÀ-ÿ]+[ ]?)+$");
         if (!expNombre.test(nombre)) {
             textoErrores += " nombre "
             errores = true
@@ -164,7 +164,7 @@ function comprobacionesTodosCampos(nombre2, apellido2, dni2, user2, password2) {
 
         //Apellido
         let apellido = document.getElementById(apellido2).value
-        let expApellido = new RegExp("^([A-Za-z]+[ ]?)+$");
+        let expApellido = new RegExp("^([A-Za-zÀ-ÿ]+[ ]?)+$");
         if (!expApellido.test(apellido)) {
             textoErrores += " apellido "
             errores = true
@@ -186,7 +186,7 @@ function comprobacionesTodosCampos(nombre2, apellido2, dni2, user2, password2) {
 
         //Usuario
         let usuario = document.getElementById(user2).value;
-        let expUsuario = new RegExp("^[A-Za-z0-9]+$");
+        let expUsuario = new RegExp("^[A-Za-z0-9._]+$");
         if (!expUsuario.test(usuario)) {
             textoErrores += " usuario "
             errores = true

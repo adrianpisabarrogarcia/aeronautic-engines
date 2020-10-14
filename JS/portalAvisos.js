@@ -274,7 +274,7 @@ function comprobarDatosAviso(titulo2, fecha2, descripcion2) {
     try {
         //Titulo
         let titulo = document.getElementById(titulo2).value;
-        let exptitulo = new RegExp("^([A-Za-z]+[ ]?)+$");
+        let exptitulo = new RegExp("^([A-Za-z,:_À-ÿ]+[ ]?)+$");
         if (!exptitulo.test(titulo)) {
             textoerror += "El titulo introducido no cumple con las caracteristicas necesarias.\n";
             erroravisos = true;
@@ -282,11 +282,6 @@ function comprobarDatosAviso(titulo2, fecha2, descripcion2) {
 
         //Fecha
         let fecha = document.getElementById(fecha2).value;
-        /*let expfecha = new RegExp("^(([0-2][0-9]|3[0-1])/(0[1-9]|1[0-2)])/(19[7-9][0-9]|20[0-1][0-9]|2020))$");
-        if (!expfecha.test(fecha)) {
-            textoerror += "El formato de la fecha es incorrecto.\n";
-            erroravisos = true;
-        }*/
         let dia = fecha.substring(8);
         let mes = fecha.substring(5, 7);
         let anno = fecha.substring(0, 4);
@@ -295,10 +290,6 @@ function comprobarDatosAviso(titulo2, fecha2, descripcion2) {
         if (fechaDate > fechaHoy) {
             textoerror += "La fecha introducida no es posible.\n"
             erroravisos = true;
-        }
-        if (fecha2 == "--") {
-            erroravisos = true;
-            textoerror += "La fecha es obligatoria";
         }
 
         //Decripcion
