@@ -28,6 +28,7 @@ main{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    position: absolute;
 
 }
 img{
